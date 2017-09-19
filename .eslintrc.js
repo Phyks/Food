@@ -36,6 +36,14 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     // Use 4 spaces indent
-    'indent': ['error', 4]
+    'indent': ['error', 4],
+    // Ignore assignment to state
+    'no-param-reassign': [
+        "error",
+        {
+            "props": true,
+            "ignorePropertyModificationsFor": ["state"]
+        }
+    ],
   }
-}
+};
