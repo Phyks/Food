@@ -11,4 +11,7 @@ export default {
             },
         );
     },
+    setTitle({ commit }, { title }) {
+        commit(types.SET_TITLE, { title });
+    },
 };

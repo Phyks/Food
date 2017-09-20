@@ -1,23 +1,42 @@
 <template>
-    <div id="app">
-        <h1>Food scanning</h1>
-        <router-view></router-view>
-    </div>
+    <v-app toolbar>
+        <NavigationDrawer :isDrawerVisible="isDrawerVisible"/>
+        <v-toolbar class="indigo" dark>
+            <v-toolbar-side-icon @click.stop="showHideDrawer"></v-toolbar-side-icon>
+            <v-toolbar-title>{{ title }}</v-toolbar-title>
+        </v-toolbar>
+        <main>
+            <v-container fluid>
+                <router-view></router-view>
+            </v-container>
+        </main>
+    </v-app>
 </template>
 
 <script>
+import NavigationDrawer from '@/components/NavigationDrawer';
+
 export default {
-    name: 'app',
+    components: {
+        NavigationDrawer,
+    },
+    computed: {
+        title() {
+            return this.$store.getters.title;
+        },
+    },
+    data() {
+        return {
+            isDrawerVisible: false,
+        };
+    },
+    methods: {
+        showHideDrawer() {
+            this.isDrawerVisible = !this.isDrawerVisible;
+        },
+    },
 };
 </script>
 
 <style>
-#app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
 </style>

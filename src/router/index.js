@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from '@/components/Home';
-import Scan from '@/components/Scan';
-import Product from '@/components/Product';
+import Home from '@/views/Home';
+import ManualBarcode from '@/views/ManualBarcode';
+import Scan from '@/views/Scan';
+import Product from '@/views/Product';
+import Preferences from '@/views/Preferences';
 
 Vue.use(Router);
 
@@ -20,9 +22,19 @@ export default new Router({
             component: Scan,
         },
         {
+            path: '/barcode',
+            name: 'ManualBarcode',
+            component: ManualBarcode,
+        },
+        {
             path: '/barcode/:barcode',
             name: 'Product',
             component: Product,
+        },
+        {
+            path: '/preferences',
+            name: 'Preferences',
+            component: Preferences,
         },
     ],
 });
