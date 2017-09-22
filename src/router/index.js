@@ -1,25 +1,26 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+import About from '@/views/About';
 import Home from '@/views/Home';
 import ManualBarcode from '@/views/ManualBarcode';
-import Scan from '@/views/Scan';
 import Product from '@/views/Product';
 import Preferences from '@/views/Preferences';
+import Scan from '@/views/Scan';
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
         {
+            path: '/about',
+            name: 'About',
+            component: About,
+        },
+        {
             path: '/',
             name: 'Home',
             component: Home,
-        },
-        {
-            path: '/scan',
-            name: 'Scan',
-            component: Scan,
         },
         {
             path: '/barcode',
@@ -35,6 +36,11 @@ export default new Router({
             path: '/preferences',
             name: 'Preferences',
             component: Preferences,
+        },
+        {
+            path: '/scan',
+            name: 'Scan',
+            component: Scan,
         },
     ],
 });

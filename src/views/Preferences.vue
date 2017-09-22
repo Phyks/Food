@@ -7,7 +7,7 @@
 <script>
 export default {
     created() {
-        this.$store.dispatch('setTitle', { title: 'Preferences' });
+        this.$store.dispatch('setTitle', { title: this.$t('navigation.preferences') });
     },
 };
 </script>
