@@ -44,7 +44,7 @@
 
 <script>
 /**
- * TODO: Do not open drawer on route change.
+ * TODO: Do not open drawer on route change nor on resize.
  * TODO: Should stick to the toolbar on xs screens. Should be fixed by Vuetify 0.16.
  */
 export default {

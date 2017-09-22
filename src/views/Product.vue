@@ -67,12 +67,12 @@ export default {
     },
     computed: {
         product() {
-            const product = this.$store.getters.product;
+            const product = this.$store.state.product;
             this.$store.dispatch('setTitle', { title: product.product_name });
             return product;
         },
         isLoading() {
-            return this.$store.getters.isLoading;
+            return this.$store.state.isLoading;
         },
     },
     methods: {
