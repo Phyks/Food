@@ -17,9 +17,11 @@ export default {
 <style scoped>
 .barcode-icon >>> line, .barcode-icon >>> path, .barcode-icon >>> polyline {
     stroke: white;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
 }
 
 .barcode-icon >>> path {
     fill: white;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
     <v-container fluid layout wrap class="manualbarcode-panel">
         <v-layout row>
-            <h2 class="headline text-xs-center">{{ $t('manualBarcode.heading') }}</h2>
+            <v-flex xs12>
+                <h2 class="headline text-xs-center">{{ $t('manualBarcode.heading') }}</h2>
+            </v-flex>
         </v-layout>
 
         <v-layout row class="mt-4">
