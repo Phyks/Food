@@ -1,14 +1,12 @@
 <template>
-    <v-app toolbar>
-        <NavigationDrawer :isDrawerVisible="isDrawerVisible"/>
-        <v-toolbar class="indigo" dark>
+    <v-app toolbar :style="{ backgroundColor: backgroundColor }">
+        <NavigationDrawer v-model="isDrawerVisible"/>
+        <v-toolbar dark>
             <v-toolbar-side-icon @click.stop="showHideDrawer"></v-toolbar-side-icon>
             <v-toolbar-title>{{ title }}</v-toolbar-title>
         </v-toolbar>
         <main>
-            <v-container fluid>
-                <router-view></router-view>
-            </v-container>
+            <router-view></router-view>
         </main>
     </v-app>
 </template>
@@ -22,7 +20,10 @@ export default {
     },
     computed: {
         title() {
-            return this.$store.getters.title;
+            return this.$store.getters.layout.title;
+        },
+        backgroundColor() {
+            return this.$store.getters.layout.backgroundColor;
         },
     },
     data() {
@@ -37,6 +38,3 @@ export default {
     },
 };
 </script>
-
-<style>
-</style>

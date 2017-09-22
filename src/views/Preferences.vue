@@ -1,5 +1,7 @@
 <template>
-    <p>TODO</p>
+    <v-container fluid>
+        <p>TODO</p>
+    </v-container>
 </template>
 
 <script>

@@ -14,4 +14,7 @@ export default {
     setTitle({ commit }, { title }) {
         commit(types.SET_TITLE, { title });
     },
+    setBackgroundColor({ commit }, { backgroundColor }) {
+        commit(types.SET_BACKGROUND_COLOR, { backgroundColor });
+    },
 };

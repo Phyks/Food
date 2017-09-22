@@ -1,23 +1,61 @@
 <template>
-    <v-form v-model="valid" ref="form">
-        <v-text-field
-            label="EAN13 barcode"
-            v-model="ean13"
-            :rules="ean13Rules"
-            :counter="13"
-            type="number"
-            required
-            ></v-text-field>
-        <p class="text-xs-right">
-            <v-btn @click="submit" :disabled="!valid" :class="{ green: valid }">Find</v-btn>
-        </p>
-    </v-form>
+    <v-container fluid layout wrap class="manualbarcode-panel">
+        <v-layout row>
+            <h2 class="headline text-xs-center">Which barcode are you looking for?</h2>
+        </v-layout>
+
+        <v-layout row class="mt-4">
+            <v-flex xs12>
+                <BarcodeIcon />
+            </v-flex>
+        </v-layout>
+
+        <v-layout row>
+            <v-form class="form" v-model="valid" ref="form">
+                <v-container fluid grid-list-xs>
+                    <v-layout row wrap align-baseline>
+                        <v-flex xs9>
+                            <v-text-field
+                                label="EAN13 barcode"
+                                placeholder="1234567890128"
+                                v-model="ean13"
+                                :rules="ean13Rules"
+                                :counter="13"
+                                type="number"
+                                required
+                                dark
+                                ></v-text-field>
+                        </v-flex>
+                        <v-flex xs3>
+                            <p class="text-xs-right">
+                                <v-btn
+                                    @click="submit"
+                                    :disabled="!valid"
+                                    :class="{ green: valid }"
+                                    class="no-min-width"
+                                    dark
+                                    >
+                                    Go!
+                                </v-btn>
+                            </p>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-form>
+        </v-layout>
+    </v-container>
 </template>
 
 <script>
+import BarcodeIcon from '@/components/BarcodeIcon';
+
 export default {
     created() {
         this.$store.dispatch('setTitle', { title: 'Manual barcode' });
+        this.$store.dispatch('setBackgroundColor', { backgroundColor: '#42A5F5' });
+    },
+    components: {
+        BarcodeIcon,
     },
     data() {
         return {
@@ -38,3 +76,18 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.manualbarcode-panel {
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.form {
+    width: 100%;
+}
+
+.no-min-width {
+    min-width: auto;
+}
+</style>

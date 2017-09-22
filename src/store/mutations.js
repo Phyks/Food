@@ -1,9 +1,13 @@
+import constants from '@/constants';
 import * as types from './mutations-types';
 
 export const initialState = {
     product: null,
     isLoading: false,
-    title: 'Food scanning',
+    layout: {
+        title: constants.APP_NAME,
+        backgroundColor: constants.APP_DEFAULT_BACKGROUND_COLOR,
+    },
 };
 
 export const mutations = {
@@ -15,6 +19,9 @@ export const mutations = {
         state.isLoading = true;
     },
     [types.SET_TITLE](state, { title }) {
-        state.title = title;
+        state.layout.title = title;
+    },
+    [types.SET_BACKGROUND_COLOR](state, { backgroundColor }) {
+        state.layout.backgroundColor = backgroundColor;
     },
 };

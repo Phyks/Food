@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <v-container fluid>
         <h2>Let's scan something!</h2>
 
         <p>Loading scanning app…</p>
-    </div>
+    </v-container>
 </template>
 
 <script>

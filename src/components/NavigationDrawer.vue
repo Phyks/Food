@@ -3,7 +3,7 @@
         persistent
         clipped
         enable-resize-watcher
-        v-model="isDrawerVisible"
+        v-model="isActive"
         >
         <v-list>
             <v-list-tile :to="{ name: 'Home' }" exact>
@@ -43,9 +43,23 @@
 </template>
 
 <script>
+/**
+ * TODO: Do not open drawer on route change.
+ * TODO: Should stick to the toolbar on xs screens. Should be fixed by Vuetify 0.16.
+ */
 export default {
     props: {
-        isDrawerVisible: Boolean,
+        value: Boolean,
+    },
+    computed: {
+        isActive: {
+            get() {
+                return this.value;
+            },
+            set(val) {
+                this.$emit('input', val);
+            },
+        },
     },
 };
 </script>
