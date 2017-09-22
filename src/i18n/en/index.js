@@ -7,6 +7,7 @@ export default {
         OpenDatabaseLicense: 'Open Database License',
     },
     misc: {
+        loading: 'Loading…',
         or: 'or',
         there: 'there',
     },

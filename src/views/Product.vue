@@ -1,11 +1,15 @@
 <template>
-    <v-container fluid class="product-panel">
-        <v-flex class="text-xs-center">
-            <template v-if="isLoading">
-                <p>Loading…</p>
-            </template>
-            <template v-else>
-                <p><img :src="this.product.image_front_small_url"></p>
+    <div>
+        <Loading v-if="isLoading"/>
+        <v-container fluid v-else>
+            <v-layout row align-baseline>
+                <v-flex xs3 class="text-xs-center">
+                    <v-avatar size="100%">
+                      <img :src="this.product.image_front_small_url" :alt="product.product_name">
+                    </v-avatar>
+                </v-flex>
+            </v-layout>
+            <v-layout row>
                 <v-tabs centered>
                     <v-tabs-items>
                         <v-tabs-content id="tab-overview">
@@ -34,10 +38,9 @@
                         </v-tabs-content>
                     </v-tabs-items>
                 </v-tabs>
-            </template>
-        </v-flex>
-        <!-- TODO: Should be pushed to left -->
-        <v-bottom-nav absolute :value="true" class="transparent">
+            </v-layout>
+        </v-container>
+        <v-bottom-nav v-if="!isLoading" absolute :value="true" class="transparent">
             <v-btn flat class="teal--text" value="recent">
                 <span>Overview</span>
                 <v-icon>view_list</v-icon>
@@ -51,14 +54,19 @@
                 <v-icon>info_outline</v-icon>
             </v-btn>
         </v-bottom-nav>
-    </v-container>
+    </div>
 </template>
 
 <script>
+import Loading from '@/views/Loading';
+
 export default {
+    components: {
+        Loading,
+    },
     created() {
-        this.$store.dispatch('setTitle', { title: 'Loading' });
-        this.$store.dispatch('setBackgroundColor', { backgroundColor: '#00d400' });
+        this.$store.dispatch('setTitle', { title: '' });
+        this.$store.dispatch('setBackgroundColor', { backgroundColor: '#9CCC65' });
         this.fetchData();
     },
     watch: {
@@ -67,9 +75,7 @@ export default {
     },
     computed: {
         product() {
-            const product = this.$store.state.product;
-            this.$store.dispatch('setTitle', { title: product.product_name });
-            return product;
+            return this.$store.state.product;
         },
         isLoading() {
             return this.$store.state.isLoading;
@@ -82,3 +88,13 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.product-icon {
+    background-color: white;
+    border-radius: 100%;
+}
+.product-icon >>> img {
+    vertical-align: middle;
+}
+</style>
