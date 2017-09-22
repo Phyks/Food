@@ -5,10 +5,7 @@ export default {
     getProduct({ commit }, { EAN }) {
         commit(types.IS_LOADING);
         getProduct(EAN).then(
-            (result) => {
-                const { product } = result;
-                commit(types.STORE_PRODUCT, { product });
-            },
+            product => commit(types.STORE_PRODUCT, { product }),
         );
     },
     setTitle({ commit }, { title }) {

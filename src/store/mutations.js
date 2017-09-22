@@ -14,7 +14,7 @@ export const mutations = {
     [types.STORE_PRODUCT](state, { product }) {
         state.product = product;
         state.isLoading = false;
-        state.ui.title = product.product_name;  // Set UI title
+        state.ui.title = product.name;  // Set UI title
     },
     [types.IS_LOADING](state) {
         state.isLoading = true;

@@ -5,7 +5,7 @@
             <v-layout row align-baseline>
                 <v-flex xs3 class="text-xs-center">
                     <v-avatar size="100%">
-                      <img :src="this.product.image_front_small_url" :alt="product.product_name">
+                      <img :src="this.product.icon" :alt="product.name">
                     </v-avatar>
                 </v-flex>
             </v-layout>
