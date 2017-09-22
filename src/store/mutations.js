@@ -4,7 +4,7 @@ import * as types from './mutations-types';
 export const initialState = {
     product: null,
     isLoading: false,
-    layout: {
+    ui: {
         title: constants.APP_NAME,
         backgroundColor: constants.APP_DEFAULT_BACKGROUND_COLOR,
     },
@@ -19,9 +19,9 @@ export const mutations = {
         state.isLoading = true;
     },
     [types.SET_TITLE](state, { title }) {
-        state.layout.title = title;
+        state.ui.title = title;
     },
     [types.SET_BACKGROUND_COLOR](state, { backgroundColor }) {
-        state.layout.backgroundColor = backgroundColor;
+        state.ui.backgroundColor = backgroundColor;
     },
 };

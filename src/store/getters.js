@@ -1,5 +1,6 @@
+// TODO: Shouldn't we use mapState/mapGetters?
 export default {
     product: state => state.product,
     isLoading: state => state.isLoading,
-    layout: state => state.layout,
+    ui: state => state.ui,
 };

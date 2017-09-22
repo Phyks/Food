@@ -20,10 +20,10 @@ export default {
     },
     computed: {
         title() {
-            return this.$store.getters.layout.title;
+            return this.$store.getters.ui.title;
         },
         backgroundColor() {
-            return this.$store.getters.layout.backgroundColor;
+            return this.$store.getters.ui.backgroundColor;
         },
     },
     data() {
