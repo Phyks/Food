@@ -11,23 +11,23 @@
                     <v-icon>home</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>Home</v-list-tile-title>
+                    <v-list-tile-title>{{ $t('navigation.home') }}</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
             <v-list-tile :to="{ name: 'Scan' }">
                 <v-list-tile-action>
-                    <v-icon>search</v-icon>
+                    <v-icon>camera_alt</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>Scan</v-list-tile-title>
+                    <v-list-tile-title>{{ $t('navigation.scan') }}</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
             <v-list-tile :to="{ name: 'ManualBarcode' }">
                 <v-list-tile-action>
-                    <v-icon>search</v-icon>
+                    <v-icon>keyboard</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>Find by barcode</v-list-tile-title>
+                    <v-list-tile-title>{{ $t('navigation.manualBarcode') }}</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
             <v-list-tile :to="{ name: 'Preferences' }">
@@ -35,7 +35,7 @@
                     <v-icon>settings</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>Preferences</v-list-tile-title>
+                    <v-list-tile-title>{{ $t('navigation.preferences') }}</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>

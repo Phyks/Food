@@ -1,7 +1,7 @@
 <template>
     <v-container fluid layout wrap class="manualbarcode-panel">
         <v-layout row>
-            <h2 class="headline text-xs-center">Which barcode are you looking for?</h2>
+            <h2 class="headline text-xs-center">{{ $t('manualBarcode.heading') }}</h2>
         </v-layout>
 
         <v-layout row class="mt-4">
@@ -16,7 +16,7 @@
                     <v-layout row wrap align-baseline>
                         <v-flex xs9>
                             <v-text-field
-                                label="EAN13 barcode"
+                                :label="$t('manualBarcode.EAN13Barcode')"
                                 placeholder="1234567890128"
                                 v-model="ean13"
                                 :rules="ean13Rules"
@@ -35,7 +35,7 @@
                                     class="no-min-width"
                                     dark
                                     >
-                                    Go!
+                                    {{ $t('manualBarcode.go') }}
                                 </v-btn>
                             </p>
                         </v-flex>
@@ -51,7 +51,7 @@ import BarcodeIcon from '@/components/BarcodeIcon';
 
 export default {
     created() {
-        this.$store.dispatch('setTitle', { title: 'Manual barcode' });
+        this.$store.dispatch('setTitle', { title: this.$t('navigation.manualBarcode') });
         this.$store.dispatch('setBackgroundColor', { backgroundColor: '#42A5F5' });
     },
     components: {

@@ -2,7 +2,7 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 /**
- * TODO
+ * TODO: Handle country/locale
  */
 export default function (EAN) {
     return fetch(
