@@ -6,7 +6,7 @@ import Home from '@/views/Home';
 import ManualBarcode from '@/views/ManualBarcode';
 import Product from '@/views/Product';
 import Preferences from '@/views/Preferences';
-import Scan from '@/views/Scan';
+import Scan from '@/views/ScanQuagga';
 
 Vue.use(Router);
 

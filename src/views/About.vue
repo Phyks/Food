@@ -11,8 +11,11 @@
         <i18n path="about.OpenFoodFactsDescription" tag="p">
             <a href="https://world.openfoodfacts.org/" place="OpenFoodFacts">OpenFoodFacts</a>
             <a href="http://opendatacommons.org/licenses/odbl/1.0/" place="OpenDatabaseLicense">{{ $t('about.OpenDatabaseLicense') }}</a>
+            <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en" place="CreativeCommonsBYSALicense">{{ $t('about.CreativeCommonsBYSALicense') }}</a>
         </i18n>
-        <p class="text-xs-center"><img src="/static/openfoodfacts.svg"/></p>
+        <p class="text-xs-center">
+            <a href="http://openfoodfacts.org/"><img src="/static/openfoodfacts.svg"/></a>
+        </p>
     </v-container>
 </template>
 

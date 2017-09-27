@@ -3,7 +3,7 @@
         <h2>Let's scan something!</h2>
         <h2>Found: {{ barcode }}</h2>
 
-        <div ref="video"></div>
+        <div id="interactive" class="viewport"></div>
         <p v-if="!playing && error">{{ error }}</p>
     </div>
 </template>
@@ -26,48 +26,42 @@ export default {
         },
     },
     mounted() {
-        const videoElement = this.$refs.video;
-        const barcodeHandler = this.handleBarcode;
-
         Quagga.init({
             inputStream: {
-                name: 'Scan',
                 type: 'LiveStream',
                 constraints: {
+                    width: { min: 640 },
+                    height: { min: 480 },
                     facingMode: 'environment',
+                    aspectRatio: { min: 1, max: 2 },
                 },
-                target: videoElement,
             },
+            /* locator: {
+                patchSize: 'medium',
+                halfSample: true,
+            },
+            frequency: 10,
             decoder: {
                 readers: [
                     'ean_reader',
                 ],
-                debug: {
-                    drawBoundingBox: true,
-                    showFrequency: true,
-                    drawScanline: true,
-                    showPattern: true,
-                },
             },
+            locate: true, */
         }, (err) => {
             if (err) {
                 this.error = err.toString();
-                return;
+                // return;
             }
 
-            Quagga.start();
-            Quagga.onDetected(barcodeHandler);
+            // Quagga.start();
         });
+        /* Quagga.onProcessed((result) => {
+            console.log(result);
+        }); */
     },
     beforeDestroy() {
-        Quagga.offDetected(this.handleBarcode);
-        Quagga.stop();
+        // Quagga.offDetected(this.handleBarcode);
+        // Quagga.stop();
     },
 };
 </script>
-
-<style>
-/*canvas.drawingBuffer {
-    display: none;
-}*/
-</style>

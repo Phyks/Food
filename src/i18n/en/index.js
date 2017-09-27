@@ -3,8 +3,9 @@ export default {
         appDescription: 'InFood is your grocery companion app, to help you scan quickly facts about products you are about to buy.',
         licenseDescription: 'It is available under a {MITLicense} and source code is hosted by {Github}. Please report any bugs {there}.',
         MITLicense: 'MIT license',
-        OpenFoodFactsDescription: 'Products data is provided by {OpenFoodFacts} under {OpenDatabaseLicense}.',
+        OpenFoodFactsDescription: '{OpenFoodFacts} provides products data under {OpenDatabaseLicense} and illustrations under {CreativeCommonsBYSALicense}.',
         OpenDatabaseLicense: 'Open Database License',
+        CreativeCommonsBYSALicense: 'CC BY SA',
     },
     misc: {
         loading: 'Loading…',

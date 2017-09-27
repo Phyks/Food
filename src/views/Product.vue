@@ -1,46 +1,42 @@
 <template>
     <div>
         <Loading v-if="isLoading"/>
-        <v-container fluid v-else>
-            <v-layout row align-baseline>
-                <v-flex xs3 class="text-xs-center">
-                    <v-avatar size="100%">
-                      <img :src="this.product.icon" :alt="product.name">
-                    </v-avatar>
+        <v-container fluid grid-list-lg v-else>
+            <v-layout row wrap align-baseline>
+                <v-flex xs12>
+                    <v-card>
+                        <v-container fluid grid-list-lg>
+                            <v-layout row mb-3>
+                                <v-flex xs5>
+                                    <v-avatar size="100%">
+                                        <img class="icon" :src="this.product.icon" />
+                                    </v-avatar>
+                                </v-flex>
+                                <v-flex xs7 class="text-xs-center">
+                                    <div>
+                                        <div class="headline">Herta</div>
+                                        <h2 class="title">{{ product.name }}</h2>
+                                    </div>
+                                </v-flex>
+                            </v-layout>
+
+                            <ProductOverviewItem name="Diet" icon="check_circle" />
+                            <ProductOverviewItem name="Allergens" icon="clear" />
+                            <ProductOverviewItem name="Nutriscore">
+                                <span>A</span>
+                            </ProductOverviewItem>
+                            <ProductOverviewItem name="Labels">
+                                <span>A</span>
+                            </ProductOverviewItem>
+                            <ProductOverviewItem name="Made">
+                                <span>300km away</span>
+                            </ProductOverviewItem>
+                        </v-container>
+                    </v-card>
                 </v-flex>
             </v-layout>
-            <v-layout row>
-                <v-tabs centered>
-                    <v-tabs-items>
-                        <v-tabs-content id="tab-overview">
-                            <v-card flat>
-                                <v-card-text>
-                                </v-card-text>
-                            </v-card>
-                        </v-tabs-content>
-                        <v-tabs-content id="tab-nutrition">
-                            <v-card flat>
-                                <v-card-text>
-                                    <v-data-table
-                                        hide-actions
-                                        >
-                                        <template slot="items" scope="props">
-                                            <td>{{ props.item.name }}</td>
-                                        </template>
-                                    </v-data-table>
-                                </v-card-text>
-                            </v-card>
-                        </v-tabs-content>
-                        <v-tabs-content id="tab-labels">
-                            <v-card flat>
-                                <v-card-text>Bidule</v-card-text>
-                            </v-card>
-                        </v-tabs-content>
-                    </v-tabs-items>
-                </v-tabs>
-            </v-layout>
         </v-container>
-        <v-bottom-nav v-if="!isLoading" absolute :value="true" class="transparent">
+        <v-bottom-nav v-if="!isLoading" :value="true" class="white">
             <v-btn flat class="teal--text" value="recent">
                 <span>Overview</span>
                 <v-icon>view_list</v-icon>
@@ -50,8 +46,8 @@
                 <v-icon>info_outline</v-icon>
             </v-btn>
             <v-btn flat class="teal--text" value="recent">
-                <span>Labels</span>
-                <v-icon>info_outline</v-icon>
+                <span>Alerts</span>
+                <v-icon>warning</v-icon>
             </v-btn>
         </v-bottom-nav>
     </div>
@@ -59,10 +55,12 @@
 
 <script>
 import Loading from '@/views/Loading';
+import ProductOverviewItem from '@/components/ProductOverviewItem';
 
 export default {
     components: {
         Loading,
+        ProductOverviewItem,
     },
     created() {
         this.$store.dispatch('setTitle', { title: '' });
@@ -90,11 +88,10 @@ export default {
 </script>
 
 <style scoped>
-.product-icon {
-    background-color: white;
-    border-radius: 100%;
-}
-.product-icon >>> img {
-    vertical-align: middle;
+.icon {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 </style>
